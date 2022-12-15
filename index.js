@@ -12,6 +12,20 @@ function closeabout(){
         $("#about_container").css("display","none");
     },800);
 }
+function showblog(){
+    $("#blog_container").css("display","inherit");
+    $("#blog_container").addClass("animated slideInDown");
+    setTimeout(function(){
+        $("#blog_container").removeClass("animated slideInDown");
+    },800);
+}
+function closeblog(){
+    $("#blog_container").addClass("animated slideOutUp");
+    setTimeout(function(){
+        $("#blog_container").removeClass("animated slideOutUp");
+        $("#blog_container").css("display","none");
+    },800);
+}
 function showwork(){
     $("#work_container").css("display","inherit");
     $("#work_container").addClass("animated slideInRight");
@@ -47,6 +61,7 @@ setTimeout(function(){
       $("#loading").css("display","none");
       $("#box").css("display","none");
       $("#about").removeClass("animated fadeIn");
+      $("#blog").removeClass("animated fadeIn");
       $("#contact").removeClass("animated fadeIn");
       $("#work").removeClass("animated fadeIn");
     },1000);

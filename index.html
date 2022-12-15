@@ -36,9 +36,6 @@
         <div class="box2 onlywide animated bounceOutRight" style="animation-delay:1.8s;"></div>
         <div class="box2 onlywide animated bounceOutRight" style="animation-delay:1.7s;"></div>
     </div>
-    <a id="about" onclick="showabout()" class="animated fadeIn" style="animation-delay:2.2s;">about</a>
-    <a id="work" onclick="showwork()" class="animated fadeIn" style="animation-delay:2.2s;">work</a>
-    <a id="contact" onclick="showcontact()" class="animated fadeIn" style="animation-delay:2.2s;">contact</a>
     <div id="middle" class="animated slideInDown" style="animation-delay:2.0s;">
         <h1>
             <div class='console-container'>
@@ -50,6 +47,7 @@
         <div id="menu">
             <a onclick="showabout()">about</a>
             <a onclick="showwork()">work</a>
+            <a onclick="showblog()">blog</a>
             <a onclick="showcontact()">contact</a>
         </div>
         <table>
@@ -59,6 +57,14 @@
                     <td class="animated zoomIn" style="animation-delay:2.8s;"><a class="social" href="https://github.com/lscherub" target="_blank"><i class="fab fa-github"></i></a></td>
                     <td class="animated zoomIn" style="animation-delay:2.2s;"><a class="social" href="https://www.facebook.com/ls.cherub" target="_blank"><i class="fab fa-facebook"></i></a></td>
                 </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="animated zoomIn" style="animation-delay:2.4s;"><a class="social2" onclick="showabout()" class="animated fadeIn" style="animation-delay:2.2s;"><h3>about</h3></a></td>
+                <td class="animated zoomIn" style="animation-delay:2.6s;"><a class="social2" onclick="showwork()" class="animated fadeIn" style="animation-delay:2.2s;"><h3>&nbsp;work&nbsp;</h3></a></td>
+                <td class="animated zoomIn" style="animation-delay:2.8s;"><a class="social2" onclick="showblog()" class="animated fadeIn" style="animation-delay:2.2s;"><h3>&nbsp;blog&nbsp;</h3></a></td>
+                <td class="animated zoomIn" style="animation-delay:2.2s;"><a class="social2" onclick="showcontact()" class="animated fadeIn" style="animation-delay:2.2s;"><h3>contact</h3></a></td>
+            </tr>
         </table>
     </div>
     <div id="work_container" class="container">
@@ -162,7 +168,32 @@
                 <button class="btn_two"><a style="color: rgb(255, 50, 50);" target="_blank" href="docs/resume.pdf">Resume</a></button>
             </section>
         </div>
-          <div id="contact_container" class="container">
+    <div id="blog_container" class="container">
+            <div onclick="closeblog()"><i class="fas fa-angle-up"></i></div>
+            <h1>blog<blink>.</blink></h1>
+            <p>click each link to read more.</p>
+            <section>
+                <ul>
+                    <li>
+                        <h2><u><a>How to Overcome Procrastination and Boost Your Productivity</a></u></h2>
+                    </li>
+                    <li>
+                        <h2><u>10 Tips to get the most out of your workout</u></h2>
+                    </li>
+                    <li>
+                        <h2><u>5 Books you need to read next year</u></h2>
+                    </li>
+                    <li>
+                        <h2><u>Why Parenting is the Most Important Job in the World</u></h2>
+                    </li>
+                    <li>
+                        <h2><u>Creative DIY decorations for a merry and bright Christmas</u></h2>
+                    </li>
+                </ul>
+            </section>
+            
+        </div>
+    <div id="contact_container" class="container">
             <div onclick="closecontact()"><i class="fas fa-angle-down"></i></div>
             <h1>contact.</h1>
             <section>
