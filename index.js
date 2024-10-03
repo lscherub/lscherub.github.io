@@ -28,15 +28,15 @@ function closeblog(){
 }
 function showwork(){
     $("#work_container").css("display","inherit");
-    $("#work_container").addClass("animated slideInRight");
+    $("#work_container").addClass("animated slideInUp");
     setTimeout(function(){
-        $("#work_container").removeClass("animated slideInRight");
+        $("#work_container").removeClass("animated slideInUp");
     },800);
 }
 function closework(){
-    $("#work_container").addClass("animated slideOutRight");
+    $("#work_container").addClass("animated slideOutDown");
     setTimeout(function(){
-        $("#work_container").removeClass("animated slideOutRight");
+        $("#work_container").removeClass("animated slideOutDown");
         $("#work_container").css("display","none");
     },800);
 }
