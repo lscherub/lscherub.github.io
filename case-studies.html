@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="images/Letter16.ico" type="image/ico" sizes="16x16">
+    <link rel="shortcut icon" href="images/Letter32.ico" type="image/ico" sizes="32x32">
+    <link rel="shortcut icon" href="images/Letter96.ico" type="image/ico" sizes="96x96">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="E-commerce Case Studies - Data-Driven Growth & Optimization">
+    <meta name="keywords" content="case studies, e-commerce growth, shopify optimization, SEO, digital marketing">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Loveleen S.">
+    <title>Case Studies | loveleen cherub</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Additional styles for case studies page that complement existing CSS */
+        .case-studies-wrapper {
+            width: 90vw;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8vh 5vw;
+            min-height: 100vh;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            color: rgb(255, 50, 50);
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            color: #fff;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 5vh;
+        }
+
+        .page-header h1 {
+            font-size: 60px;
+            color: rgb(255, 50, 50);
+            text-decoration: underline;
+            margin-bottom: 2vh;
+        }
+
+        .page-header p {
+            font-size: 21px;
+            opacity: 0.9;
+        }
+
+        .intro-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 8vh;
+            padding: 30px;
+            background: rgba(255, 50, 50, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 50, 50, 0.3);
+        }
+
+        .intro-section p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .case-study {
+            background: rgba(255, 50, 50, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 8vh 0;
+            border: 2px solid rgba(255, 50, 50, 0.2);
+        }
+
+        .case-study h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: rgb(255, 50, 50);
+            text-decoration: underline;
+        }
+
+        .case-study h3 {
+            font-size: 28px;
+            margin: 30px 0 15px;
+            color: #fff;
+        }
+
+        .case-study p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 50, 50, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 50, 50, 0.4);
+            transition: 0.4s ease-in-out;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 50, 50, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: rgb(255, 50, 50);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 40px 0;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 50, 50, 0.2);
+        }
+
+        .methodology {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid rgb(255, 50, 50);
+        }
+
+        .methodology h4 {
+            color: rgb(255, 50, 50);
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .methodology ul {
+            list-style-position: inside;
+            opacity: 0.9;
+        }
+
+        .methodology li {
+            margin: 10px 0;
+            padding-left: 10px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 800px) {
+            .page-header h1 {
+                font-size: 40px;
+            }
+            
+            .case-study {
+                padding: 25px;
+            }
+
+            .case-study h2 {
+                font-size: 30px;
+            }
+
+            .case-study h3 {
+                font-size: 22px;
+            }
+            
+            .chart-container {
+                height: 300px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="case-studies-wrapper">
+        <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> back to home</a>
+
+        <div class="page-header">
+            <h1>case studies<blink>.</blink></h1>
+            <p>data-driven e-commerce growth & optimization</p>
+        </div>
+
+        <div class="intro-section">
+            <p>these case studies showcase measurable e-commerce growth achieved through strategic SEO implementation, platform optimization, and data-driven marketing. all projects were executed as part of <strong>Mad Monkey Media</strong>, providing comprehensive digital operations and growth consulting to multi-brand clients.</p>
+        </div>
+
+        <!-- GEGRA CONSTRUCTION CASE STUDY -->
+        <div class="case-study">
+            <h2>gegra construction & rental equipment</h2>
+            <p><strong>challenge:</strong> a B2B construction equipment retailer with minimal online presence needed to scale website traffic and establish organic search visibility to compete with established industry players.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">714%</span>
+                    <span class="stat-label">Traffic Growth</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">7.3K → 59K</span>
+                    <span class="stat-label">Users (6 months)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">6,100+</span>
+                    <span class="stat-label">Organic Search Sessions</span>
+                </div>
+            </div>
+
+            <h3>traffic growth over time</h3>
+            <div class="chart-container">
+                <canvas id="gegraTrafficChart"></canvas>
+            </div>
+
+            <h3>traffic source breakdown</h3>
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="gegraSourcesChart"></canvas>
+            </div>
+
+            <div class="methodology">
+                <h4>strategy & implementation:</h4>
+                <ul>
+                    <li><strong>technical SEO:</strong> google merchant center integration, bing webmaster tools setup, domain architecture optimization</li>
+                    <li><strong>infrastructure:</strong> cloudflare CDN configuration for performance and security</li>
+                    <li><strong>content optimization:</strong> product catalog restructuring with keyword-optimized titles and descriptions</li>
+                    <li><strong>platform:</strong> shopify plus with custom liquid templating</li>
+                </ul>
+            </div>
+
+            <p><strong>result:</strong> transformed from near-zero organic visibility to a competitive online presence with sustained monthly traffic exceeding 30,000 sessions at peak.</p>
+        </div>
+
+        <!-- AURA NATURAL MARKET CASE STUDY -->
+        <div class="case-study">
+            <h2>aura natural market</h2>
+            <p><strong>challenge:</strong> an organic supplements and grocery e-commerce store needed to improve search visibility, streamline product catalog management, and enhance user experience for health-conscious consumers navigating dietary restrictions.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">29%</span>
+                    <span class="stat-label">Traffic Growth</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">43K → 56K</span>
+                    <span class="stat-label">Users (6 months)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2,000+</span>
+                    <span class="stat-label">Products Updated Monthly</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">~31%</span>
+                    <span class="stat-label">Avg Checkout Conversion</span>
+                </div>
+            </div>
+
+            <h3>sessions growth trajectory</h3>
+            <div class="chart-container">
+                <canvas id="auraTrafficChart"></canvas>
+            </div>
+
+            <h3>checkout conversion rate performance</h3>
+            <div class="chart-container">
+                <canvas id="auraConversionChart"></canvas>
+            </div>
+
+            <div class="methodology">
+                <h4>strategy & implementation:</h4>
+                <ul>
+                    <li><strong>product catalog management:</strong> managed 2,000+ monthly product updates including photography, SEO-optimized descriptions, pricing, and inventory sync</li>
+                    <li><strong>custom development:</strong> built metafield-based dietary tagging system (vegan, dairy-free, gluten-free) with custom liquid scripting for dynamic filtering</li>
+                    <li><strong>UX enhancement:</strong> created "shop by diet" homepage section and smart collections for improved product discovery</li>
+                    <li><strong>customer guidance:</strong> developed interactive quiz/recommendation tool for new supplement customers</li>
+                    <li><strong>SEO & content:</strong> established comprehensive SOPs for consistent, high-quality product content</li>
+                </ul>
+            </div>
+
+            <p><strong>result:</strong> sustained traffic growth with strong checkout conversion rates (averaging 30-35%), demonstrating improved user experience and product discoverability.</p>
+        </div>
+
+        <!-- STF FURNITURE CASE STUDY -->
+        <div class="case-study">
+            <h2>STF home & furniture</h2>
+            <p><strong>challenge:</strong> a local vancouver furniture retailer with stagnant instagram performance and limited advertising budget needed to drive targeted website traffic and prove ROI on paid advertising.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$0.10</span>
+                    <span class="stat-label">Cost Per Click</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">58%</span>
+                    <span class="stat-label">Better than Industry Avg</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">16,920</span>
+                    <span class="stat-label">Total Link Clicks</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1000%+</span>
+                    <span class="stat-label">Facebook Traffic Increase</span>
+                </div>
+            </div>
+
+            <h3>cost efficiency vs industry benchmark</h3>
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="stfCPCChart"></canvas>
+            </div>
+
+            <h3>campaign performance timeline</h3>
+            <div class="chart-container">
+                <canvas id="stfTimelineChart"></canvas>
+            </div>
+
+            <div class="methodology">
+                <h4>strategy & implementation:</h4>
+                <ul>
+                    <li><strong>campaign design:</strong> meta (facebook) traffic campaign with $20/day budget (later reduced to $5)</li>
+                    <li><strong>creative strategy:</strong> leveraged vendor-supplied product imagery without additional creative budget</li>
+                    <li><strong>targeting:</strong> custom audience segmentation by interest, age group, and local geography</li>
+                    <li><strong>optimization:</strong> continuous A/B testing with top-performing creatives running longer</li>
+                    <li><strong>copywriting:</strong> AI-assisted ad copy for headlines, primary text, and descriptions</li>
+                </ul>
+            </div>
+
+            <p><strong>result:</strong> achieved exceptional cost efficiency ($0.12 CPC, 49% below industry average during peak performance) and drove massive increase in facebook referral traffic (26,946 sessions vs. 2,347 previous year). campaign also contributed to instagram follower growth from ~1,500 to 2,000.</p>
+            
+            <p style="margin-top: 20px; opacity: 0.8;"><em>note: store permanently closed after campaign conclusion. full case study available on <a href="https://www.behance.net/loveleens" target="_blank" style="color: rgb(255, 50, 50); text-decoration: underline;">behance</a>.</em></p>
+        </div>
+
+    </div>
+
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Chart.js default configuration
+        Chart.defaults.color = '#fff';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+
+        // Gegra Traffic Chart
+        const gegraCtx = document.getElementById('gegraTrafficChart');
+        new Chart(gegraCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jun 2025', 'Jul 2025', 'Aug 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dec 2025', 'Jan 2026'],
+                datasets: [{
+                    label: 'Visitors',
+                    data: [1406, 1836, 1232, 13092, 32958, 5573, 1374, 2072],
+                    borderColor: '#ff3232',
+                    backgroundColor: 'rgba(255, 50, 50, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gegra Sources Pie Chart
+        const gegraSourcesCtx = document.getElementById('gegraSourcesChart');
+        new Chart(gegraSourcesCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Direct', 'Organic Search', 'Social', 'Other'],
+                datasets: [{
+                    data: [54524, 6130, 94, 1153],
+                    backgroundColor: [
+                        'rgba(255, 50, 50, 0.8)',
+                        'rgba(255, 107, 107, 0.8)',
+                        'rgba(255, 165, 165, 0.8)',
+                        'rgba(255, 200, 200, 0.6)'
+                    ],
+                    borderColor: 'rgba(0, 0, 0, 0.3)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        });
+
+        // Aura Traffic Chart
+        const auraCtx = document.getElementById('auraTrafficChart');
+        new Chart(auraCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jun 2025', 'Jul 2025', 'Aug 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dec 2025', 'Jan 2026'],
+                datasets: [{
+                    label: 'Visitors',
+                    data: [6219, 7172, 7552, 6706, 10123, 10434, 9849, 8916],
+                    borderColor: '#4CAF50',
+                    backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Aura Conversion Chart
+        const auraConversionCtx = document.getElementById('auraConversionChart');
+        new Chart(auraConversionCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jun 2025', 'Jul 2025', 'Aug 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dec 2025', 'Jan 2026'],
+                datasets: [{
+                    label: 'Checkout Conversion Rate (%)',
+                    data: [38.96, 35.58, 31.64, 32.29, 30.09, 30.63, 35.40, 27.23],
+                    backgroundColor: 'rgba(76, 175, 80, 0.6)',
+                    borderColor: '#4CAF50',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 50,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // STF CPC Comparison Chart
+        const stfCPCCtx = document.getElementById('stfCPCChart');
+        new Chart(stfCPCCtx, {
+            type: 'bar',
+            data: {
+                labels: ['My Campaign', 'Industry Average'],
+                datasets: [{
+                    label: 'Cost Per Click ($)',
+                    data: [0.10, 0.24],
+                    backgroundColor: [
+                        'rgba(255, 50, 50, 0.8)',
+                        'rgba(150, 150, 150, 0.5)'
+                    ],
+                    borderColor: [
+                        '#ff3232',
+                        '#999'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 0.30,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // STF Timeline Chart (simulated weekly data for Feb-Apr 2025)
+        const stfTimelineCtx = document.getElementById('stfTimelineChart');
+        new Chart(stfTimelineCtx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8', 'Week 9', 'Week 10', 'Week 11', 'Week 12'],
+                datasets: [{
+                    label: 'Daily Link Clicks',
+                    data: [180, 210, 195, 205, 220, 200, 190, 185, 175, 165, 120, 95],
+                    borderColor: '#ff3232',
+                    backgroundColor: 'rgba(255, 50, 50, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true
+                    },
+                    annotation: {
+                        annotations: {
+                            line1: {
+                                type: 'line',
+                                xMin: 9.5,
+                                xMax: 9.5,
+                                borderColor: 'rgba(255, 255, 255, 0.3)',
+                                borderWidth: 2,
+                                borderDash: [5, 5],
+                                label: {
+                                    content: 'Budget Cut to $5/day',
+                                    enabled: true,
+                                    position: 'top'
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
