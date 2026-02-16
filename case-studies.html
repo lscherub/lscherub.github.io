@@ -19,18 +19,31 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* Additional styles for case studies page that complement existing CSS */
+        body {
+            overflow-y: auto !important;
+            overflow-x: hidden;
+            background: rgb(255, 50, 50) !important;
+            min-height: 100vh;
+        }
+
+        #particles-js {
+            display: none !important;
+        }
+
         .case-studies-wrapper {
             width: 90vw;
             max-width: 1200px;
             margin: 0 auto;
             padding: 8vh 5vw;
             min-height: 100vh;
+            position: relative;
+            z-index: 10;
         }
 
         .back-link {
             display: inline-block;
             margin: 20px 0;
-            color: rgb(255, 50, 50);
+            color: #fff;
             text-decoration: none;
             font-size: 1.1em;
             transition: all 0.3s;
@@ -38,7 +51,7 @@
 
         .back-link:hover {
             transform: translateX(-5px);
-            color: #fff;
+            opacity: 0.8;
         }
 
         .page-header {
@@ -48,7 +61,7 @@
 
         .page-header h1 {
             font-size: 60px;
-            color: rgb(255, 50, 50);
+            color: #fff;
             text-decoration: underline;
             margin-bottom: 2vh;
         }
@@ -63,9 +76,9 @@
             max-width: 800px;
             margin: 0 auto 8vh;
             padding: 30px;
-            background: rgba(255, 50, 50, 0.1);
+            background: rgba(0, 0, 0, 0.2);
             border-radius: 15px;
-            border: 2px solid rgba(255, 50, 50, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .intro-section p {
@@ -74,17 +87,17 @@
         }
 
         .case-study {
-            background: rgba(255, 50, 50, 0.05);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
             padding: 40px;
             margin: 8vh 0;
-            border: 2px solid rgba(255, 50, 50, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .case-study h2 {
             font-size: 40px;
             margin-bottom: 20px;
-            color: rgb(255, 50, 50);
+            color: #fff;
             text-decoration: underline;
         }
 
@@ -108,23 +121,23 @@
         }
 
         .stat-card {
-            background: rgba(255, 50, 50, 0.15);
+            background: rgba(0, 0, 0, 0.2);
             padding: 25px;
             border-radius: 15px;
             text-align: center;
-            border: 2px solid rgba(255, 50, 50, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.4);
             transition: 0.4s ease-in-out;
         }
 
         .stat-card:hover {
-            background: rgba(255, 50, 50, 0.25);
+            background: rgba(0, 0, 0, 0.4);
             transform: translateY(-5px);
         }
 
         .stat-number {
             font-size: 2.5em;
             font-weight: bold;
-            color: rgb(255, 50, 50);
+            color: #fff;
             display: block;
             margin-bottom: 10px;
         }
@@ -138,22 +151,22 @@
             position: relative;
             height: 400px;
             margin: 40px 0;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.4);
             padding: 20px;
             border-radius: 15px;
-            border: 1px solid rgba(255, 50, 50, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .methodology {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             padding: 25px;
             border-radius: 15px;
             margin: 20px 0;
-            border-left: 4px solid rgb(255, 50, 50);
+            border-left: 4px solid #fff;
         }
 
         .methodology h4 {
-            color: rgb(255, 50, 50);
+            color: #fff;
             margin-bottom: 15px;
             font-size: 21px;
         }
@@ -197,8 +210,6 @@
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    
     <div class="case-studies-wrapper">
         <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> back to home</a>
 
@@ -349,13 +360,11 @@
 
             <p><strong>result:</strong> achieved exceptional cost efficiency ($0.12 CPC, 49% below industry average during peak performance) and drove massive increase in facebook referral traffic (26,946 sessions vs. 2,347 previous year). campaign also contributed to instagram follower growth from ~1,500 to 2,000.</p>
             
-            <p style="margin-top: 20px; opacity: 0.8;"><em>note: store permanently closed after campaign conclusion. full case study available on <a href="https://www.behance.net/loveleens" target="_blank" style="color: rgb(255, 50, 50); text-decoration: underline;">behance</a>.</em></p>
+            <p style="margin-top: 20px; opacity: 0.8;"><em>note: store permanently closed after campaign conclusion. full case study available on <a href="https://www.behance.net/loveleens" target="_blank" style="color: #fff; text-decoration: underline;">behance</a>.</em></p>
         </div>
 
     </div>
 
-    <script src="particles.js"></script>
-    <script src="app.js"></script>
     <script>
         // Chart.js default configuration
         Chart.defaults.color = '#fff';
@@ -370,8 +379,8 @@
                 datasets: [{
                     label: 'Visitors',
                     data: [1406, 1836, 1232, 13092, 32958, 5573, 1374, 2072],
-                    borderColor: '#ff3232',
-                    backgroundColor: 'rgba(255, 50, 50, 0.1)',
+                    borderColor: '#fff',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     tension: 0.4,
                     fill: true
                 }]
@@ -414,12 +423,12 @@
                 datasets: [{
                     data: [54524, 6130, 94, 1153],
                     backgroundColor: [
-                        'rgba(255, 50, 50, 0.8)',
-                        'rgba(255, 107, 107, 0.8)',
-                        'rgba(255, 165, 165, 0.8)',
-                        'rgba(255, 200, 200, 0.6)'
+                        'rgba(255, 255, 255, 0.9)',
+                        'rgba(255, 255, 255, 0.7)',
+                        'rgba(255, 255, 255, 0.5)',
+                        'rgba(255, 255, 255, 0.3)'
                     ],
-                    borderColor: 'rgba(0, 0, 0, 0.3)',
+                    borderColor: 'rgba(0, 0, 0, 0.5)',
                     borderWidth: 2
                 }]
             },
@@ -443,8 +452,8 @@
                 datasets: [{
                     label: 'Visitors',
                     data: [6219, 7172, 7552, 6706, 10123, 10434, 9849, 8916],
-                    borderColor: '#4CAF50',
-                    backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                    borderColor: '#fff',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     tension: 0.4,
                     fill: true
                 }]
@@ -482,8 +491,8 @@
                 datasets: [{
                     label: 'Checkout Conversion Rate (%)',
                     data: [38.96, 35.58, 31.64, 32.29, 30.09, 30.63, 35.40, 27.23],
-                    backgroundColor: 'rgba(76, 175, 80, 0.6)',
-                    borderColor: '#4CAF50',
+                    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                    borderColor: '#fff',
                     borderWidth: 2
                 }]
             },
@@ -527,11 +536,11 @@
                     label: 'Cost Per Click ($)',
                     data: [0.10, 0.24],
                     backgroundColor: [
-                        'rgba(255, 50, 50, 0.8)',
+                        'rgba(255, 255, 255, 0.9)',
                         'rgba(150, 150, 150, 0.5)'
                     ],
                     borderColor: [
-                        '#ff3232',
+                        '#fff',
                         '#999'
                     ],
                     borderWidth: 2
@@ -571,8 +580,8 @@
                 datasets: [{
                     label: 'Daily Link Clicks',
                     data: [180, 210, 195, 205, 220, 200, 190, 185, 175, 165, 120, 95],
-                    borderColor: '#ff3232',
-                    backgroundColor: 'rgba(255, 50, 50, 0.1)',
+                    borderColor: '#fff',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     tension: 0.4,
                     fill: true
                 }]
