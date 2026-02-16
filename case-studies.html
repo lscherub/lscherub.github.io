@@ -86,6 +86,86 @@
             line-height: 1.8;
         }
 
+        /* Web Projects Section */
+        .web-projects-section {
+            margin: 8vh 0;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .web-projects-section h2 {
+            font-size: 40px;
+            color: #fff;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease-in-out;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 0, 0, 0.5);
+            border-color: #fff;
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .project-card p {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .project-tag {
+            font-size: 12px;
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .project-link-icon {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-left: 5px;
+        }
+
         .case-study {
             background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
@@ -206,6 +286,18 @@
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+
+            .web-projects-section {
+                padding: 25px;
+            }
+
+            .web-projects-section h2 {
+                font-size: 30px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -221,6 +313,15 @@
         <div class="intro-section">
             <p>these case studies showcase measurable e-commerce growth achieved through strategic SEO implementation, platform optimization, and data-driven marketing. all projects were executed as part of <strong>Mad Monkey Media</strong>, providing comprehensive digital operations and growth consulting to multi-brand clients.</p>
         </div>
+
+        <!-- WEB PROJECTS SECTION -->
+        <section class="web-projects-section">
+            <h2>web projects & development<blink>.</blink></h2>
+            <p class="section-description">websites and projects i've built or contributed to</p>
+            <div id="projects-grid" class="projects-grid">
+                <!-- Projects will be loaded here dynamically -->
+            </div>
+        </section>
 
         <!-- GEGRA CONSTRUCTION CASE STUDY -->
         <div class="case-study">
@@ -366,6 +467,52 @@
     </div>
 
     <script>
+        // Load projects from JSON file
+        async function loadProjects() {
+            try {
+                const response = await fetch('projects.json');
+                const projects = await response.json();
+                const grid = document.getElementById('projects-grid');
+                
+                if (projects.length === 0) {
+                    grid.innerHTML = '<p style="text-align: center; opacity: 0.7;">no projects added yet</p>';
+                    return;
+                }
+                
+                projects.forEach(project => {
+                    const card = document.createElement('a');
+                    card.className = 'project-card';
+                    card.href = project.url;
+                    card.target = '_blank';
+                    card.rel = 'noopener noreferrer';
+                    
+                    let tagsHTML = '';
+                    if (project.tags && project.tags.length > 0) {
+                        tagsHTML = '<div class="project-tags">';
+                        project.tags.forEach(tag => {
+                            tagsHTML += `<span class="project-tag">${tag}</span>`;
+                        });
+                        tagsHTML += '</div>';
+                    }
+                    
+                    card.innerHTML = `
+                        <h3>${project.name} <i class="fas fa-external-link-alt project-link-icon"></i></h3>
+                        <p>${project.description}</p>
+                        ${tagsHTML}
+                    `;
+                    
+                    grid.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error loading projects:', error);
+                document.getElementById('projects-grid').innerHTML = 
+                    '<p style="text-align: center; opacity: 0.7;">projects will appear here once you add them to projects.json</p>';
+            }
+        }
+        
+        // Load projects when page loads
+        loadProjects();
+        
         // Chart.js default configuration
         Chart.defaults.color = '#fff';
         Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
