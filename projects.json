@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Aura Natural Market",
+    "description": "organic supplements and grocery e-commerce store built on shopify with custom metafield system for dietary filtering",
+    "url": "https://auramarket.ca",
+    "tags": ["Shopify", "Liquid", "E-commerce", "SEO"]
+  },
+  {
+    "name": "Gegra Construction & Rental",
+    "description": "B2B construction equipment retailer with optimized product catalog and merchant center integration",
+    "url": "https://gegra.ca",
+    "tags": ["Shopify", "Google Merchant", "B2B"]
+  },
+  {
+    "name": "Mad Monkey Media",
+    "description": "digital agency portfolio showcasing creative work and client projects",
+    "url": "https://mmmedia.art/home/",
+    "tags": ["Portfolio", "Design", "Agency"]
+  },
+  {
+    "name": "Personal Portfolio",
+    "description": "my personal portfolio site with particle effects and case studies",
+    "url": "https://lscherub.github.io",
+    "tags": ["GitHub Pages", "JavaScript", "Portfolio"]
+  }
+]
