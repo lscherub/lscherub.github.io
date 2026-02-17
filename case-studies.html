@@ -461,12 +461,178 @@
 
             <p><strong>result:</strong> achieved exceptional cost efficiency ($0.12 CPC, 49% below industry average during peak performance) and drove massive increase in facebook referral traffic (26,946 sessions vs. 2,347 previous year). campaign also contributed to instagram follower growth from ~1,500 to 2,000.</p>
             
-            <p style="margin-top: 20px; opacity: 0.8;"><em>note: full case study available on <a href="https://www.behance.net/gallery/227399291/Case-Studies-for-Local-Furniture-Brand-AD" target="_blank" style="color: #fff; text-decoration: underline;">behance</a>.</em></p>
+            <p style="margin-top: 20px; opacity: 0.8;"><em>note: store permanently closed after campaign conclusion. full case study available on <a href="https://www.behance.net/loveleens" target="_blank" style="color: #fff; text-decoration: underline;">behance</a>.</em></p>
         </div>
+
+        <!-- DYNAMIC CASE STUDIES — loaded from case-studies.json -->
+        <div id="dynamic-case-studies"></div>
 
     </div>
 
     <script>
+        // ─────────────────────────────────────────────
+        // DYNAMIC CASE STUDIES — loaded from case-studies.json
+        // ─────────────────────────────────────────────
+
+        const CHART_COLORS = {
+            line:       { border: '#fff', background: 'rgba(255,255,255,0.1)' },
+            bar:        { background: 'rgba(255,255,255,0.7)', border: '#fff' },
+            doughnut:   ['rgba(255,255,255,0.9)','rgba(255,255,255,0.7)','rgba(255,255,255,0.5)','rgba(255,255,255,0.3)','rgba(255,255,255,0.15)']
+        };
+
+        Chart.defaults.color = '#fff';
+        Chart.defaults.borderColor = 'rgba(255,255,255,0.15)';
+
+        // Unique ID counter so multiple charts never collide
+        let chartIdCounter = 1000;
+
+        function buildChart(canvasId, chartDef) {
+            const ctx = document.getElementById(canvasId);
+            if (!ctx) return;
+
+            const type = chartDef.type || 'line';
+
+            let datasets;
+            if (type === 'doughnut' || type === 'pie') {
+                datasets = [{
+                    data: chartDef.data,
+                    backgroundColor: CHART_COLORS.doughnut,
+                    borderColor: 'rgba(0,0,0,0.4)',
+                    borderWidth: 2
+                }];
+            } else if (type === 'bar') {
+                datasets = [{
+                    label: chartDef.label || '',
+                    data: chartDef.data,
+                    backgroundColor: CHART_COLORS.bar.background,
+                    borderColor: CHART_COLORS.bar.border,
+                    borderWidth: 2
+                }];
+            } else {
+                // line (default)
+                datasets = [{
+                    label: chartDef.label || '',
+                    data: chartDef.data,
+                    borderColor: CHART_COLORS.line.border,
+                    backgroundColor: CHART_COLORS.line.background,
+                    tension: 0.4,
+                    fill: true
+                }];
+            }
+
+            // Optional y-axis formatting (e.g. "$0.12" or "32%")
+            const yTickCallback = chartDef.yFormat === 'currency'
+                ? v => '$' + v.toFixed(2)
+                : chartDef.yFormat === 'percent'
+                ? v => v + '%'
+                : v => v.toLocaleString();
+
+            new Chart(ctx, {
+                type,
+                data: { labels: chartDef.labels, datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: type === 'doughnut' || type === 'pie', position: 'right' }
+                    },
+                    scales: (type === 'doughnut' || type === 'pie') ? {} : {
+                        y: {
+                            beginAtZero: true,
+                            max: chartDef.yMax || undefined,
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { callback: yTickCallback }
+                        },
+                        x: { grid: { color: 'rgba(255,255,255,0.05)' } }
+                    }
+                }
+            });
+        }
+
+        function renderDynamicCaseStudy(cs, container) {
+            const id = `dcs-${chartIdCounter++}`;
+            const section = document.createElement('div');
+            section.className = 'case-study';
+
+            // ── Header ──
+            let html = `<h2>${cs.name}</h2>`;
+            if (cs.challenge) html += `<p><strong>challenge:</strong> ${cs.challenge}</p>`;
+
+            // ── Stat cards ──
+            if (cs.stats && cs.stats.length) {
+                html += '<div class="stats-grid">';
+                cs.stats.forEach(s => {
+                    html += `<div class="stat-card">
+                        <span class="stat-number">${s.value}</span>
+                        <span class="stat-label">${s.label}</span>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+
+            // ── Charts ──
+            if (cs.charts && cs.charts.length) {
+                cs.charts.forEach((chart, i) => {
+                    const canvasId = `${id}-chart-${i}`;
+                    const height = (chart.type === 'doughnut' || chart.type === 'pie') ? '300px' : '400px';
+                    html += `<h3>${chart.title}</h3>
+                        <div class="chart-container" style="height:${height}">
+                            <canvas id="${canvasId}"></canvas>
+                        </div>`;
+                });
+            }
+
+            // ── Methodology ──
+            if (cs.methodology && cs.methodology.length) {
+                html += `<div class="methodology">
+                    <h4>strategy & implementation:</h4>
+                    <ul>`;
+                cs.methodology.forEach(item => {
+                    html += `<li><strong>${item.label}:</strong> ${item.detail}</li>`;
+                });
+                html += `</ul></div>`;
+            }
+
+            // ── Result ──
+            if (cs.result) html += `<p><strong>result:</strong> ${cs.result}</p>`;
+
+            // ── Optional link ──
+            if (cs.link) {
+                html += `<p style="margin-top:20px;opacity:0.8;">
+                    <em>view live: <a href="${cs.link}" target="_blank" style="color:#fff;text-decoration:underline;">${cs.link}</a></em>
+                </p>`;
+            }
+
+            section.innerHTML = html;
+            container.appendChild(section);
+
+            // Now build charts (canvas must exist in DOM first)
+            if (cs.charts && cs.charts.length) {
+                cs.charts.forEach((chart, i) => {
+                    buildChart(`${id}-chart-${i}`, chart);
+                });
+            }
+        }
+
+        async function loadDynamicCaseStudies() {
+            const container = document.getElementById('dynamic-case-studies');
+            try {
+                const res = await fetch('case-studies.json');
+                const studies = await res.json();
+                if (!studies.length) return;
+                studies.forEach(cs => renderDynamicCaseStudy(cs, container));
+            } catch (e) {
+                // Silently fail — no placeholder shown if file is missing or empty
+                console.info('No dynamic case studies loaded:', e.message);
+            }
+        }
+
+        loadDynamicCaseStudies();
+
+        // ─────────────────────────────────────────────
+        // PROJECTS — loaded from projects.json
+        // ─────────────────────────────────────────────
+
         // Load projects from JSON file
         async function loadProjects() {
             try {
