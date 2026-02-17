@@ -1,0 +1,44 @@
+[
+  {
+    "name": "example brand — full case study template",
+    "challenge": "this is where you describe what the client needed. what problem were you solving? what were they struggling with?",
+    "stats": [
+      { "value": "120%", "label": "Traffic Growth" },
+      { "value": "2.4%",  "label": "Avg CTR" },
+      { "value": "$0.15", "label": "Cost Per Click" },
+      { "value": "4 months", "label": "Timeline" }
+    ],
+    "charts": [
+      {
+        "title": "monthly traffic growth",
+        "type": "line",
+        "label": "Visitors",
+        "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        "data":   [1200, 1800, 2400, 3200, 4100, 5600]
+      },
+      {
+        "title": "traffic sources",
+        "type": "doughnut",
+        "labels": ["Organic Search", "Direct", "Social", "Paid", "Other"],
+        "data":   [4500, 2100, 800, 600, 200]
+      },
+      {
+        "title": "conversion rate over time (%)",
+        "type": "bar",
+        "label": "Conversion Rate (%)",
+        "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        "data":   [1.2, 1.5, 1.8, 2.1, 2.4, 2.7],
+        "yFormat": "percent",
+        "yMax": 5
+      }
+    ],
+    "methodology": [
+      { "label": "SEO",         "detail": "on-page optimization, keyword research, and internal linking strategy" },
+      { "label": "platform",    "detail": "shopify with custom liquid templates and metafield configuration" },
+      { "label": "ads",         "detail": "google ads with smart bidding and audience segmentation" },
+      { "label": "analytics",   "detail": "google analytics 4 with custom event tracking for key conversion actions" }
+    ],
+    "result": "describe the final outcome here — traffic numbers, revenue impact, conversion improvements, or whatever the key win was.",
+    "link": "https://example.com"
+  }
+]
