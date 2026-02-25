@@ -25,7 +25,7 @@ body.case-studies-page #particles-js {
 
 .case-studies-wrapper {
     width: 90vw;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     padding: 8vh 5vw;
     min-height: 100vh;
