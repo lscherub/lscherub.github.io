@@ -1,10 +1,10 @@
-// function([string1, string2],target id,[color1,color2])  
-
-setTimeout(function(){
-  consoleText(['Hello!', "I'm Loveleen.", 'Nice to Meet You!'],'text');
-}, 2400);  
-
-
+/**
+ * consoleText — typewriter effect for the homepage heading.
+ *
+ * @param {string[]} words  - Array of phrases to cycle through.
+ * @param {string}   id     - ID of the element that displays the typed text.
+ * @param {string[]} [colors=['#ff3232']] - Matching color per phrase.
+ */
 function consoleText(words, id, colors) {
   if (colors === undefined) colors = ['#ff3232'];
   var visible = true;
@@ -12,44 +12,50 @@ function consoleText(words, id, colors) {
   var letterCount = 1;
   var x = 1;
   var waiting = false;
-  var target = document.getElementById(id)
-  target.setAttribute('style', 'color:' + colors[0])
-  window.setInterval(function() {
+  var target = document.getElementById(id);
+  target.setAttribute('style', 'color:' + colors[0]);
 
+  // Typing interval — adds/removes one character at a time
+  window.setInterval(function () {
     if (letterCount === 0 && waiting === false) {
       waiting = true;
-      target.innerHTML = words[0].substring(0, letterCount)
-      window.setTimeout(function() {
+      target.innerHTML = words[0].substring(0, letterCount);
+      window.setTimeout(function () {
         var usedColor = colors.shift();
         colors.push(usedColor);
         var usedWord = words.shift();
         words.push(usedWord);
         x = 1;
-        target.setAttribute('style', 'color:' + colors[0])
+        target.setAttribute('style', 'color:' + colors[0]);
         letterCount += x;
         waiting = false;
-      }, 1000)
+      }, 1000);
     } else if (letterCount === words[0].length + 1 && waiting === false) {
       waiting = true;
-      window.setTimeout(function() {
+      window.setTimeout(function () {
         x = -1;
         letterCount += x;
         waiting = false;
-      }, 1000)
+      }, 1000);
     } else if (waiting === false) {
-      target.innerHTML = words[0].substring(0, letterCount)
+      target.innerHTML = words[0].substring(0, letterCount);
       letterCount += x;
     }
-  }, 120)
-  window.setInterval(function() {
+  }, 120);
+
+  // Cursor blink interval
+  window.setInterval(function () {
     if (visible === true) {
-      con.className = 'console-underscore hidden'
+      con.className = 'console-underscore hidden';
       visible = false;
-
     } else {
-      con.className = 'console-underscore'
-
+      con.className = 'console-underscore';
       visible = true;
     }
-  }, 400)
+  }, 400);
 }
+
+// Start the typewriter after the intro animation completes
+setTimeout(function () {
+  consoleText(['Hello!', "I'm Loveleen.", 'Nice to Meet You!'], 'text');
+}, 2400);
