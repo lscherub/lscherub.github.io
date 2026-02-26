@@ -22,5 +22,11 @@
     "description": "my personal portfolio site with particle effects and case studies",
     "url": "https://lscherub.github.io",
     "tags": ["GitHub Pages", "JavaScript", "Portfolio"]
+  },
+  {
+    "name": "Markdown Table Editor",
+    "description": "Excel style markdown editor for visual editing",
+    "url": "https://lscherub.github.io/markdown-table-editor/",
+    "tags": ["typescript", "react", "tailwind_css", "anitgravity", "vibe_coding"]
   }
 ]
